@@ -1,0 +1,68 @@
+{
+  "name": "OpenTTD",
+  "description": "Private OpenTTD server with persistent worlds and TCP multiplayer.",
+  "category": "Other",
+  "tags": [
+    "game-server",
+    "openttd",
+    "simulation",
+    "multiplayer"
+  ],
+  "image": "https://raw.githubusercontent.com/OpenTTD/OpenTTD/14ec60f248547d4d062a1160f0fc26d742319888/media/openttd.256.png",
+  "services": {
+    "OpenTTD": {
+      "icon": "https://raw.githubusercontent.com/OpenTTD/OpenTTD/14ec60f248547d4d062a1160f0fc26d742319888/media/openttd.256.png",
+      "source": {
+        "repo": "baranberkay96/openttd-railway",
+        "rootDirectory": "/services/openttd"
+      },
+      "healthcheckPath": "/health",
+      "healthcheckTimeout": 300,
+      "restartPolicyType": "ALWAYS",
+      "publicDomain": false,
+      "targetPort": 8080,
+      "tcpProxy": 3979,
+      "volume": {
+        "mountPath": "/data"
+      },
+      "variables": {
+        "PORT": {
+          "defaultValue": "8080",
+          "description": "Private readiness HTTP port; no public HTTP domain.",
+          "required": false
+        },
+        "SERVER_PASSWORD": {
+          "defaultValue": "${{secret(32, \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\")}}",
+          "description": "Generated game password; share only with invited players (16\u201332 ASCII letters, digits, _ or -).",
+          "required": false
+        },
+        "SERVER_NAME": {
+          "defaultValue": "Railway OpenTTD",
+          "description": "Game name (1\u201360 ASCII letters, digits, spaces, ., _, or -).",
+          "required": false
+        },
+        "MAX_CLIENTS": {
+          "defaultValue": "16",
+          "description": "Maximum simultaneous players, from 2 to 64. Invalid values use 16.",
+          "required": false
+        },
+        "SAVE_INTERVAL_SECONDS": {
+          "defaultValue": "60",
+          "description": "Checkpoint interval in real seconds, from 10 to 3600. Invalid values use 60.",
+          "required": false
+        },
+        "RAILWAY_DEPLOYMENT_DRAINING_SECONDS": {
+          "defaultValue": "120",
+          "description": "Allow checkpoint saving before stopping the game on redeploy.",
+          "required": false
+        },
+        "RAILWAY_DEPLOYMENT_OVERLAP_SECONDS": {
+          "defaultValue": "0",
+          "description": "Keep exactly one process using the persistent world.",
+          "required": false
+        }
+      }
+    }
+  },
+  "buckets": []
+}

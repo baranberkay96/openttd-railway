@@ -1,0 +1,5 @@
+FROM railway-openttd:15.3
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommends libsdl2-2.0-0 && rm -rf /var/lib/apt/lists/*
+ENV SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy
+ENTRYPOINT ["/opt/openttd/openttd"]
