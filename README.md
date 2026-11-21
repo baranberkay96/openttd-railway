@@ -1,5 +1,7 @@
 # Deploy and Host OpenTTD with Railway
 
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/openttd?referralCode=20H68q)
+
 Host a private OpenTTD 15.3 transport simulation world with a generated game password, persistent saves, and direct connections through Railway's TCP proxy. This community template includes the free OpenGFX 8.0 graphics set. Friends can build railways, run competing transport companies, or cooperate without purchasing or uploading Transport Tycoon Deluxe assets.
 
 ## About Hosting OpenTTD
