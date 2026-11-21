@@ -24,4 +24,4 @@ One service; no database, cache, workers, or sidecars. Estimated small-world idl
 
 ## Open questions
 
-Local test results are in `VERIFICATION.md`. Railway public TCP proxy routing and plan resource metering require the parent's separate deployment verification; this package creates no Railway project and publishes nothing.
+Local test results are in `VERIFICATION.md`. Railway public TCP authentication, real-client gameplay acknowledgments, company creation and saved-game persistence passed cloud checks on 2026-11-21, including a deployment from the published template. Large-map load and long-term usage remain workload-dependent.
